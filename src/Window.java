@@ -1422,4 +1422,92 @@ public class Window extends JFrame{
         }
         return data;
     }
+
+    public Object createMatrixCategoryOm() {
+        ArrayList<CategoriaOm> categories = CategoriaOm.listaCategoriasOm();
+        Object[][] data = new Object[25][2];
+        int i = 0;
+        if (categories.size() == 0) {
+            for (int k = 0; k < 25; k++) {
+                for (int j = 0; j < 2; j++) {
+                    data[k][j] = "";
+                }
+            }
+            return data;
+        }
+        for (CategoriaOm co : categories) {
+            String[] itemProduct = CategoriaOm.arregloCategorias(co);
+            for (int k = 0; k < 2; k++) {
+                data[i][k] = itemProduct[k];
+            }
+            i++;
+        }
+        return data;
+    }
+
+    public Object createMatrixCategorySt() {
+        ArrayList<CategoriaSt> categories = CategoriaSt.listaCategoriasSt();
+        Object[][] data = new Object[25][2];
+        int i = 0;
+        if (categories.size() == 0) {
+            for (int k = 0; k < 25; k++) {
+                for (int j = 0; j < 2; j++) {
+                    data[k][j] = "";
+                }
+            }
+            return data;
+        }
+        for (CategoriaSt co : categories) {
+            String[] itemProduct = CategoriaSt.arregloCategorias(co);
+            for (int k = 0; k < 2; k++) {
+                data[i][k] = itemProduct[k];
+            }
+            i++;
+        }
+        return data;
+    }
+
+    public Object createMatrixCategoryClient() {
+        ArrayList<CategoriaCliente> categories = CategoriaCliente.listaCategoriasClientes();
+        Object[][] data = new Object[25][3];
+        int i = 0;
+        if (categories.size() == 0) {
+            for (int k = 0; k < 25; k++) {
+                for (int j = 0; j < 3; j++) {
+                    data[k][j] = "";
+                }
+            }
+            return data;
+        }
+        for (CategoriaCliente co : categories) {
+            String[] itemProduct = CategoriaCliente.arregloCategorias(co);
+            for (int k = 0; k < 3; k++) {
+                data[i][k] = itemProduct[k];
+            }
+            i++;
+        }
+        return data;
+    }
+
+    public Object createMatrixDescuentos() {
+        ArrayList<DescuentosAfiliados> descuentos = DescuentosAfiliados.listaDescuentos();
+        Object[][] data = new Object[25][3];
+        int i = 0;
+        if (descuentos.size() == 0) {
+            for (int k = 0; k < 25; k++) {
+                for (int j = 0; j < 3; j++) {
+                    data[k][j] = "";
+                }
+            }
+            return data;
+        }
+        for (DescuentosAfiliados da : descuentos) {
+            String[] itemProduct = DescuentosAfiliados.arregloDescuento(da);
+            for (int k = 0; k < 3; k++) {
+                data[i][k] = itemProduct[k];
+            }
+            i++;
+        }
+        return data;
+    }
 }
