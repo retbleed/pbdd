@@ -28,7 +28,7 @@ public class CategoriaCliente extends Categoria {
                 lista.add(new CategoriaCliente(
                         rs.getInt("idCategoria"),
                         rs.getString("nombreCategoria"),
-                        rs.getInt("comprarRequeridas")
+                        rs.getInt("comprasRequeridas")
                 ));
             }
         } catch (SQLException ex) {

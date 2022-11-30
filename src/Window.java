@@ -894,8 +894,8 @@ public class Window extends JFrame{
     public void ventanaCat1(){
         userScreen.removeAll();
         // TIENES QUE CAMBIAR ESTO
-        String[] cnClient = {"ID Cliente", "Nombre del Cliente", "Correo del Cliente", "Fecha de Nacimiento", "Edad del Cliente", "Celular del Cliente", "Invitado del Cliente", "Nip Cliente", "Fecha del Cliente", "Tarjeta del Cliente"};
-        Object[][] dataB = (Object[][]) createMatrixListClient(); //Modificar
+        String[] cnClient = {"ID_Categoria", "Nombre_Categoria"};
+        Object[][] dataB = (Object[][]) createMatrixCategorySt(); //Modificar
         inventoryTable = new JTable(dataB,cnClient);
         inventoryTable.setBounds(284, 229, 1027, 556);
         userScreen.add(inventoryTable);
@@ -1005,8 +1005,8 @@ public class Window extends JFrame{
     public void ventanaCat2(){
         userScreen.removeAll();
         // TIENES QUE CAMBIAR ESTO
-        String[] cnClient = {"ID Cliente", "Nombre del Cliente", "Correo del Cliente", "Fecha de Nacimiento", "Edad del Cliente", "Celular del Cliente", "Invitado del Cliente", "Nip Cliente", "Fecha del Cliente", "Tarjeta del Cliente"};
-        Object[][] dataB = (Object[][]) createMatrixListClient(); //Modificar
+        String[] cnClient = {"ID_Categoria", "Nombre_Categoria"};
+        Object[][] dataB = (Object[][]) createMatrixCategoryOm(); //Modificar
         inventoryTable = new JTable(dataB,cnClient);
         inventoryTable.setBounds(284, 229, 1027, 556);
         userScreen.add(inventoryTable);
@@ -1116,8 +1116,8 @@ public class Window extends JFrame{
     public void ventanaCat3(){
         userScreen.removeAll();
         // TIENES QUE CAMBIAR ESTO
-        String[] cnClient = {"ID Cliente", "Nombre del Cliente", "Correo del Cliente", "Fecha de Nacimiento", "Edad del Cliente", "Celular del Cliente", "Invitado del Cliente", "Nip Cliente", "Fecha del Cliente", "Tarjeta del Cliente"};
-        Object[][] dataB = (Object[][]) createMatrixListClient(); //Modificar
+        String[] cnClient = {"ID_Categoria", "Nombre_Categoria", "Compras_Requeridas"};
+        Object[][] dataB = (Object[][]) createMatrixCategoryClient(); //Modificar
         inventoryTable = new JTable(dataB,cnClient);
         inventoryTable.setBounds(284, 229, 1027, 556);
         userScreen.add(inventoryTable);
@@ -1227,8 +1227,8 @@ public class Window extends JFrame{
     public void ventanaCat4(){
         userScreen.removeAll();
         // TIENES QUE CAMBIAR ESTO
-        String[] cnClient = {"ID Cliente", "Nombre del Cliente", "Correo del Cliente", "Fecha de Nacimiento", "Edad del Cliente", "Celular del Cliente", "Invitado del Cliente", "Nip Cliente", "Fecha del Cliente", "Tarjeta del Cliente"};
-        Object[][] dataB = (Object[][]) createMatrixListClient(); //Modificar
+        String[] cnClient = {"ID_Descuento", "Tipo_Descuento", "Ventas_Requeridas"};
+        Object[][] dataB = (Object[][]) createMatrixDescuentos(); //Modificar
         inventoryTable = new JTable(dataB,cnClient);
         inventoryTable.setBounds(284, 229, 1027, 556);
         userScreen.add(inventoryTable);
