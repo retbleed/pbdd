@@ -2,6 +2,7 @@
   <library name="IntelliJ IDEA GridLayout">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/lib/intellij_forms_rt.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mysql-connector-java-8.0.20.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

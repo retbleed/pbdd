@@ -1,12 +1,7 @@
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.sql.*;
-
-
-import javax.swing.*;
 
 public class Window extends JFrame{
 
@@ -97,12 +92,10 @@ public class Window extends JFrame{
         textA.setForeground(new Color(253, 184, 52));
         userScreen.add(textA);
 
-        for (int i = 0; i < 10; i++){
-            textC = new JLabel("PROBANDO: " + (i * 13));
-            textC.setBounds(35,115 + (i * 13),700,30);
-            userScreen.add(textC);
-        }
 
+
+        String[] cnInventory = {"ID Producto", "Nombre del Producto", "Descripcion", "Presentacion", "Precio", "Contenido", "Stock", "Marca"};
+        Object[][] data = {};
         //  addButton removeButton searchButton modifyButton
 
         addButton = new JButton("Añadir");
@@ -194,5 +187,10 @@ public class Window extends JFrame{
         userScreen.add(exam);
 
         this.repaint();
+    }
+
+
+    public void createArrayList(){
+
     }
 }
