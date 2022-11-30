@@ -14,6 +14,7 @@ public class Window extends JFrame{
     private JLabel serverOutput, textA, textB, textC, textD, textE, textF, textG, textH, textI;
 
     private boolean optionA = false, optionB = false, optionC = false, optionD = false;
+    private JTable inventoryTable;
 
     private Style exam;
     static final int height = 1024;
@@ -95,8 +96,9 @@ public class Window extends JFrame{
 
         String[] cnInventory = {"ID Producto", "Nombre del Producto", "Descripcion", "Presentacion", "Precio", "Contenido", "Stock", "Marca"};
         Object[][] data = (Object[][]) createMatrixList();
-
-        //  addButton removeButton searchButton modifyButton
+        inventoryTable = new JTable(data,cnInventory);
+        inventoryTable.setBounds(284, 229, 1027, 556);
+        userScreen.add(inventoryTable);
 
         addButton = new JRadioButton("Añadir");
         addButton.setBounds(765, 799, 117,29);
