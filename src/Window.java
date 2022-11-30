@@ -122,7 +122,7 @@ public class Window extends JFrame{
         });
         userScreen.add(productButton);
 
-        cat1Button = new JButton("ESCRIBIR");
+        cat1Button = new JButton("Categoria ST");
         cat1Button.setBounds(19, 218, 117,29);
         cat1Button.addActionListener(new ActionListener() {
             @Override
@@ -133,7 +133,7 @@ public class Window extends JFrame{
         });
         userScreen.add(cat1Button);
 
-        cat2Button = new JButton("ESCRIBIR");
+        cat2Button = new JButton("Categoria OM");
         cat2Button.setBounds(19, 260, 117,29);
         cat2Button.addActionListener(new ActionListener() {
             @Override
@@ -144,7 +144,7 @@ public class Window extends JFrame{
         });
         userScreen.add(cat2Button);
 
-        cat3Button = new JButton("ESCRIBIR");
+        cat3Button = new JButton("Categoria Clientes");
         cat3Button.setBounds(19, 302, 117,29);
         cat3Button.addActionListener(new ActionListener() {
             @Override
@@ -155,7 +155,7 @@ public class Window extends JFrame{
         });
         userScreen.add(cat3Button);
 
-        cat4Button = new JButton("ESCRIBIR");
+        cat4Button = new JButton("Descuento Afiliados");
         cat4Button.setBounds(19, 344, 117,29);
         cat4Button.addActionListener(new ActionListener() {
             @Override
@@ -190,7 +190,6 @@ public class Window extends JFrame{
         this.repaint();
     }
 
-
     public void ventanaCliente(){
         userScreen.removeAll();
         String[] cnClient = {"ID Cliente", "Nombre del Cliente", "Correo del Cliente", "Fecha de Nacimiento", "Edad del Cliente", "Celular del Cliente", "Invitado del Cliente", "Nip Cliente", "Fecha del Cliente", "Tarjeta del Cliente"};
@@ -198,7 +197,6 @@ public class Window extends JFrame{
         inventoryTable = new JTable(dataB,cnClient);
         inventoryTable.setBounds(284, 229, 1027, 556);
         userScreen.add(inventoryTable);
-        selector = 1;
 
         String userName = "Administrador";
 
@@ -208,6 +206,44 @@ public class Window extends JFrame{
         userScreen.add(textA);
 
         // FALTAN
+
+        addButton = new JRadioButton("Insertar Cliente");
+        addButton.setBounds(336, 799, 117,29);
+        addButton.setSelected(true);
+        userScreen.add(addButton);
+
+        removeButton = new JRadioButton("Eliminar Cliente");
+        removeButton.setBounds(479, 799, 117,29);
+        userScreen.add(removeButton);
+
+        searchButton = new JRadioButton("Buscar");
+        searchButton.setBounds(622, 799, 117,29);
+        userScreen.add(searchButton);
+
+        modifyButton = new JRadioButton("Actualizar Datos");
+        modifyButton.setBounds(765, 799, 117,29);
+        userScreen.add(modifyButton);
+
+        plus1Button = new JRadioButton("Actualizar Fechas");
+        plus1Button.setBounds(908, 799, 117,29);
+        userScreen.add(plus1Button);
+
+        plus2Button = new JRadioButton("Actualizar Celular");
+        plus2Button.setBounds(1051, 799, 117,29);
+        userScreen.add(plus2Button);
+
+        plus3Button = new JRadioButton("Actualizar NIP");
+        plus2Button.setBounds(1194, 799, 117,29);
+        userScreen.add(plus2Button);
+
+        //////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////
+
         clientButton = new JButton("Cliente");
         clientButton.setBounds(19, 92, 117,29);
         clientButton.addActionListener(new ActionListener() {
@@ -295,24 +331,36 @@ public class Window extends JFrame{
         );
         userScreen.add(logoutButton);
 
+        //////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////
+
         userInputNewBalance = new JTextField();
         userInputNewBalance.setBounds(284,843,884,29);
         userScreen.add(userInputNewBalance);
 
         ButtonGroup group = new ButtonGroup();
-        group.add(addButton); group.add(removeButton); group.add(searchButton); group.add(modifyButton);
+        group.add(addButton); group.add(removeButton); group.add(searchButton); group.add(modifyButton); group.add(plus1Button); group.add(plus2Button); group.add(plus3Button);
 
         acceptButton = new JButton("Ejecutar");
         acceptButton.setBounds(1194,843,117,29);
         acceptButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                String[] xcdS = userInputNewBalance.getText().split("-");
                 if (addButton.isSelected()){
                     if(userInputNewBalance.getText().equals("")){
 
                     }else{
-                        String[] xcdS = userInputNewBalance.getText().split("-");
-
+                        if(xcdS.length == 9){
+                            Cliente.insertarCliente(xcdS[0],xcdS[1],xcdS[2],Integer.parseInt(xcdS[3]),xcdS[4], xcdS[5], Integer.parseInt(xcdS[6]), xcdS[7], xcdS[8]);
+                        }else{
+                            userInputNewBalance.setText("No funca");
+                        }
                         ventanaCliente();
                     }
                 }
@@ -321,7 +369,12 @@ public class Window extends JFrame{
                     if(userInputNewBalance.getText().equals("")){
 
                     }else{
-                        String[] xcdS = userInputNewBalance.getText().split("-");
+                        if(xcdS.length == 1){
+                            Cliente.eliminarCliente(Integer.parseInt(xcdS[0]));
+                        }else{
+                            userInputNewBalance.setText("No funca");
+                        }
+                        ventanaCliente();
                     }
                 }
 
@@ -329,7 +382,12 @@ public class Window extends JFrame{
                     if(userInputNewBalance.getText().equals("")){
 
                     }else{
-                        String[] xcdS = userInputNewBalance.getText().split("-");
+                        if(xcdS.length == 1){
+                            Cliente.busquedaXID(Integer.parseInt(xcdS[0]));
+                        }else{
+                            userInputNewBalance.setText("No funca");
+                        }
+                        ventanaCliente();
                     }
                 }
 
@@ -337,13 +395,56 @@ public class Window extends JFrame{
                     if(userInputNewBalance.getText().equals("")){
 
                     }else{
-                        String[] xcdS = userInputNewBalance.getText().split("-");
+                        if(xcdS.length == 1){
+                            Cliente.actualizarDatosNombresyCorreos(xcdS[0],xcdS[1], xcdS[2], Integer.parseInt(xcdS[3]));
+                        }else{
+                            userInputNewBalance.setText("No funca");
+                        }
+                        ventanaCliente();
+                    }
+                }
+
+                if (plus1Button.isSelected()){
+                    if(userInputNewBalance.getText().equals("")){
+
+                    }else{
+                        if(xcdS.length == 1){
+                            Cliente.actualizarFechas(xcdS[0],xcdS[1], xcdS[2], Integer.parseInt(xcdS[3]));
+                        }else{
+                            userInputNewBalance.setText("No funca");
+                        }
+                        ventanaCliente();
+                    }
+                }
+
+                if (plus2Button.isSelected()){
+                    if(userInputNewBalance.getText().equals("")){
+
+                    }else{
+                        if(xcdS.length == 1){
+                            Cliente.actualizarNumCelular(xcdS[0],xcdS[1], xcdS[2], Integer.parseInt(xcdS[3]));
+                        }else{
+                            userInputNewBalance.setText("No funca");
+                        }
+                        ventanaCliente();
+                    }
+                }
+
+                if (plus3Button.isSelected()){
+                    if(userInputNewBalance.getText().equals("")){
+
+                    }else{
+                        if(xcdS.length == 1){
+                            Cliente.actualizarNipTarjeta(xcdS[0],xcdS[1], xcdS[2], Integer.parseInt(xcdS[3]));
+                        }else{
+                            userInputNewBalance.setText("No funca");
+                        }
+                        ventanaCliente();
                     }
                 }
             }
         });
         userScreen.add(acceptButton);
-
 
         exam = new Style(2); //CAMBIAR COLORES SEGUN SEYTU o OMNILIFE
         exam.setBounds(0,0, width, height);
