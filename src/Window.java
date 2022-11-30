@@ -285,11 +285,11 @@ public class Window extends JFrame{
         return data;
     }
 
-    public Object createMatrixListAfiliado(){
-        ArrayList<Cliente> clients = Cliente.listaCliente();
+    public Object createMatrixListAfiliado() {
+        ArrayList<Afiliado> afiliados = Afiliado.listaAfiliados();
         Object[][] data = new Object[25][10];
         int i = 0;
-        if (clients.size() == 0) {
+        if (afiliados.size() == 0) {
             for (int k = 0; k < 25; k++) {
                 for (int j = 0; j < 10; j++) {
                     data[k][j] = "";
@@ -297,8 +297,8 @@ public class Window extends JFrame{
             }
             return data;
         }
-        for (Cliente c : clients) {
-            String[] itemProduct = Cliente.arregloClientes(c);
+        for (Afiliado a : afiliados) {
+            String[] itemProduct = Afiliado.arregloAfiliados(a);
             for (int k = 0; k < 10; k++) {
                 data[i][k] = itemProduct[k];
             }

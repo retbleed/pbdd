@@ -170,6 +170,65 @@ public class Cliente {
         return  arreglo;
     }
 
+    public static void actualizarNumCelular(String nombreTabla, String nombreColumna, String datoNuevo, int id) {
+        Connection con = MYSQLConnection.connect();
+        CallableStatement cst = null;
+        try {
+            cst = con.prepareCall("{call spActualizarNumCelular(?, ?, ?, ?)}");
+            cst.setString(1, nombreTabla);
+            cst.setString(2, nombreColumna);
+            cst.setString(3, datoNuevo);
+            cst.setInt(4, id);
+            cst.execute();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                con.close();
+                cst.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
+    public static Cliente busquedaXID(int id) {
+        Cliente c = null;
+        Connection con = MYSQLConnection.connect();
+        Statement st = null;
+        ResultSet rs = null;
+        try {
+            st = (Statement) con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            String consulta = "SELECT * FROM Clientes WHERE " + id + " = ID_Cliente LIMIT 1";
+            rs = st.executeQuery(consulta);
+            while (rs.next()) {
+                c = new Cliente(
+                        rs.getInt("ID_Cliente"),
+                        rs.getString("nom_Cliente"),
+                        rs.getString("correo_Cliente"),
+                        rs.getString("fNac_Cliente"),
+                        rs.getInt("edad_Cliente"),
+                        rs.getString("celular_Cliente"),
+                        rs.getString("inv_Cliente"),
+                        rs.getInt("nip_Cliente"),
+                        rs.getString("fecha_Registro"),
+                        rs.getString("tarjeta_Cliente")
+                );
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                con.close();
+                st.close();
+                rs.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+        return c;
+    }
+
     public int getIdCliente() {
         return idCliente;
     }
