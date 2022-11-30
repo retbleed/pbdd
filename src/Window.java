@@ -97,7 +97,7 @@ public class Window extends JFrame{
         userScreen.add(textA);
 
         String[] cnClient = {"ID Cliente", "Nombre del Cliente", "Correo del Cliente", "Fecha de Nacimiento", "Edad del Cliente", "Celular del Cliente", "Invitado del Cliente", "Nip Cliente", "Fecha del Cliente", "Tarjeta del Cliente"};
-        Object[][] dataB = (Object[][]) createMatrixList(); //Modificar
+        Object[][] dataB = (Object[][]) createMatrixListClient(); //Modificar
         inventoryTable = new JTable(dataB,cnClient);
         inventoryTable.setBounds(284, 229, 1027, 556);
         userScreen.add(inventoryTable);
@@ -126,7 +126,7 @@ public class Window extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 userScreen.remove(inventoryTable);
                 String[] cnClient = {"ID Cliente", "Nombre del Cliente", "Correo del Cliente", "Fecha de Nacimiento", "Edad del Cliente", "Celular del Cliente", "Invitado del Cliente", "Nip Cliente", "Fecha del Cliente", "Tarjeta del Cliente"};
-                Object[][] dataB = (Object[][]) createMatrixList(); //Modificar
+                Object[][] dataB = (Object[][]) createMatrixListClient(); //Modificar
                 inventoryTable = new JTable(dataB,cnClient);
                 inventoryTable.setBounds(284, 229, 1027, 556);
                 userScreen.add(inventoryTable);
@@ -143,7 +143,7 @@ public class Window extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 userScreen.remove(inventoryTable);
                 String[] cnAfiliado = {"ID Afiliado", "Nombre del Afiliado", "Correo del Afiliado", "Fecha de Nacimiento", "Edad del Afiliado", "Celular del Afiliado", "Invitado del Afiliado", "Nip Afiliado", "Fecha del Afiliado", "Tarjeta del Afiliado"};
-                Object[][] dataC = (Object[][]) createMatrixList(); //Modificar
+                Object[][] dataC = (Object[][]) createMatrixListAfiliado(); //Modificar
                 inventoryTable = new JTable(dataC, cnAfiliado);
                 inventoryTable.setBounds(284, 229, 1027, 556);
                 userScreen.add(inventoryTable);
@@ -160,7 +160,7 @@ public class Window extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 userScreen.remove(inventoryTable);
                 String[] cnInventory = {"ID Producto", "Nombre del Producto", "Descripcion", "Presentacion", "Precio", "Contenido", "Stock", "Marca"};
-                Object[][] dataA = (Object[][]) createMatrixList();
+                Object[][] dataA = (Object[][]) createMatrixListInventory();
                 inventoryTable = new JTable(dataA,cnInventory);
                 inventoryTable.setBounds(284, 229, 1027, 556);
                 userScreen.add(inventoryTable);
@@ -225,7 +225,7 @@ public class Window extends JFrame{
     }
 
 
-    public Object createMatrixList(){
+    public Object createMatrixListInventory(){
         ArrayList<InventarioSyO> inventory = InventarioSyO.listaInventario();
         Object[][] data = new Object[25][8];
         int i = 0;
@@ -240,6 +240,50 @@ public class Window extends JFrame{
         for (InventarioSyO item: inventory) {
             String[] itemProduct = InventarioSyO.arregloInventario(item);
             for (int k = 0; k < 8; k++) {
+                data[i][k] = itemProduct[k];
+            }
+            i++;
+        }
+        return data;
+    }
+
+    public Object createMatrixListClient(){
+        ArrayList<Cliente> clients = Cliente.listaCliente();
+        Object[][] data = new Object[25][10];
+        int i = 0;
+        if (clients.size() == 0) {
+            for (int k = 0; k < 25; k++) {
+                for (int j = 0; j < 10; j++) {
+                    data[k][j] = "";
+                }
+            }
+            return data;
+        }
+        for (Cliente c : clients) {
+            String[] itemProduct = Cliente.arregloClientes(c);
+            for (int k = 0; k < 10; k++) {
+                data[i][k] = itemProduct[k];
+            }
+            i++;
+        }
+        return data;
+    }
+
+    public Object createMatrixListAfiliado(){
+        ArrayList<Cliente> clients = Cliente.listaCliente();
+        Object[][] data = new Object[25][10];
+        int i = 0;
+        if (clients.size() == 0) {
+            for (int k = 0; k < 25; k++) {
+                for (int j = 0; j < 10; j++) {
+                    data[k][j] = "";
+                }
+            }
+            return data;
+        }
+        for (Cliente c : clients) {
+            String[] itemProduct = Cliente.arregloClientes(c);
+            for (int k = 0; k < 10; k++) {
                 data[i][k] = itemProduct[k];
             }
             i++;

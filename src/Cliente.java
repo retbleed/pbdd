@@ -155,6 +155,21 @@ public class Cliente {
         }
     }
 
+    public static String[] arregloClientes(Cliente c) {
+        String[] arreglo = new String[10];
+        arreglo[0] = String.valueOf(c.getIdCliente());
+        arreglo[1] = c.getNomCliente();
+        arreglo[2] = c.getCorreoCliente();
+        arreglo[3] = c.getfNacCliente();
+        arreglo[4] = String.valueOf(c.getEdadCliente());
+        arreglo[5] = c.getCelularCliente();
+        arreglo[6] = c.getInvCliente();
+        arreglo[7] = String.valueOf(c.getNipCliente());
+        arreglo[8] = c.getFechaCliente();
+        arreglo[9] = c.getTarjetaCliente();
+        return  arreglo;
+    }
+
     public int getIdCliente() {
         return idCliente;
     }

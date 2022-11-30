@@ -155,7 +155,7 @@ public class Afiliado {
         }
     }
 
-    public static  void actualizarEdad(String nombreTabla, String nombreColumna, String datoNuevo, int id) {
+    public static void actualizarEdad(String nombreTabla, String nombreColumna, String datoNuevo, int id) {
         Connection con = MYSQLConnection.connect();
         CallableStatement cst = null;
         try {
