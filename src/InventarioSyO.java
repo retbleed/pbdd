@@ -205,6 +205,20 @@ public class InventarioSyO {
         }
     }
 
+    public static String[] arregloInventario(InventarioSyO item) {
+        String[] arreglo = new String[8];
+        arreglo[0] = String.valueOf(item.getIdProducto());
+        arreglo[1] = item.getNomProducto();
+        arreglo[2] = item.getDescripcion();
+        arreglo[3] = item.getPresentacion();
+        arreglo[4] = String.valueOf(item.getPrecio());
+        arreglo[5] = item.getContenido();
+        arreglo[6] = String.valueOf(item.getStock());
+        arreglo[7] = item.getMarca();
+        return  arreglo;
+    }
+
+
     public int getIdProducto() {
         return idProducto;
     }
