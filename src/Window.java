@@ -196,19 +196,35 @@ public class Window extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (addButton.isSelected()){
-
+                    if(userInputNewBalance.getText() == null){
+                        System.out.println("No jalo");
+                    }else{
+                        System.out.println("Si jalo");
+                    }
                 }
 
                 if (removeButton.isSelected()){
-
+                    if(userInputNewBalance.getText() == null){
+                        System.out.println("No jalo");
+                    }else{
+                        System.out.println("Si jalo");
+                    }
                 }
 
                 if (searchButton.isSelected()){
-
+                    if(userInputNewBalance.getText() == null){
+                        System.out.println("No jalo");
+                    }else{
+                        System.out.println("Si jalo");
+                    }
                 }
 
                 if (modifyButton.isSelected()){
-
+                    if(userInputNewBalance.getText() == null){
+                        System.out.println("No jalo");
+                    }else{
+                        System.out.println("Si jalo");
+                    }
                 }
             }
         });
