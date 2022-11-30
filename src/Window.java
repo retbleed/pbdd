@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class Window extends JFrame{
 
@@ -92,8 +93,8 @@ public class Window extends JFrame{
         textA.setForeground(new Color(253, 184, 52));
         userScreen.add(textA);
 
-        // String[] cnInventory = {"ID Producto", "Nombre del Producto", "Descripcion", "Presentacion", "Precio", "Contenido", "Stock", "Marca"};
-        // Object[][] data = {InventarioSyO.arregloInventario(InventarioSyO.listaInventario().get(0))};
+        String[] cnInventory = {"ID Producto", "Nombre del Producto", "Descripcion", "Presentacion", "Precio", "Contenido", "Stock", "Marca"};
+        Object[][] data = (Object[][]) createMatrixList();
 
         //  addButton removeButton searchButton modifyButton
 
@@ -188,7 +189,25 @@ public class Window extends JFrame{
     }
 
 
-    public void createArrayList(){
-
+    public Object createMatrixList(){
+        ArrayList<InventarioSyO> inventory = InventarioSyO.listaInventario();
+        Object[][] data = new Object[25][8];
+        int i = 0;
+        if (inventory.size() == 0) {
+            for (int k = 0; k < 25; k++) {
+                for (int j = 0; j < 8; j++) {
+                    data[k][j] = "";
+                }
+            }
+            return data;
+        }
+        for (InventarioSyO item: inventory) {
+            String[] itemProduct = InventarioSyO.arregloInventario(item);
+            for (int k = 0; k < 8; k++) {
+                data[i][k] = itemProduct[k];
+            }
+            i++;
+        }
+        return data;
     }
 }

@@ -155,6 +155,28 @@ public class Afiliado {
         }
     }
 
+    public static  void actualizarEdad(String nombreTabla, String nombreColumna, String datoNuevo, int id) {
+        Connection con = MYSQLConnection.connect();
+        CallableStatement cst = null;
+        try {
+            cst = con.prepareCall("{call spActualizarEdades(?, ?, ?, ?)}");
+            cst.setString(1, nombreTabla);
+            cst.setString(2, nombreColumna);
+            cst.setString(3, datoNuevo);
+            cst.setInt(4, id);
+            cst.execute();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                con.close();
+                cst.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
     public int getIdAfiliado() {
         return idAfiliado;
     }
