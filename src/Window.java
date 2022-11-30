@@ -20,6 +20,8 @@ public class Window extends JFrame{
     static final int height = 1024;
     static final int width = 1440;
 
+    private int selector;
+
     //CONSTRUCTOR
     public Window(){
 
@@ -94,9 +96,9 @@ public class Window extends JFrame{
         textA.setForeground(new Color(253, 184, 52));
         userScreen.add(textA);
 
-        String[] cnInventory = {"ID Producto", "Nombre del Producto", "Descripcion", "Presentacion", "Precio", "Contenido", "Stock", "Marca"};
-        Object[][] data = (Object[][]) createMatrixList();
-        inventoryTable = new JTable(data,cnInventory);
+        String[] cnClient = {"ID Cliente", "Nombre del Cliente", "Correo del Cliente", "Fecha de Nacimiento", "Edad del Cliente", "Celular del Cliente", "Invitado del Cliente", "Nip Cliente", "Fecha del Cliente", "Tarjeta del Cliente"};
+        Object[][] dataB = (Object[][]) createMatrixList(); //Modificar
+        inventoryTable = new JTable(dataB,cnClient);
         inventoryTable.setBounds(284, 229, 1027, 556);
         userScreen.add(inventoryTable);
 
@@ -122,7 +124,14 @@ public class Window extends JFrame{
         clientButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                userScreen.remove(inventoryTable);
+                String[] cnClient = {"ID Cliente", "Nombre del Cliente", "Correo del Cliente", "Fecha de Nacimiento", "Edad del Cliente", "Celular del Cliente", "Invitado del Cliente", "Nip Cliente", "Fecha del Cliente", "Tarjeta del Cliente"};
+                Object[][] dataB = (Object[][]) createMatrixList(); //Modificar
+                inventoryTable = new JTable(dataB,cnClient);
+                inventoryTable.setBounds(284, 229, 1027, 556);
+                userScreen.add(inventoryTable);
+                selector = 1;
+                repaint();
             }
         });
         userScreen.add(clientButton);
@@ -132,7 +141,13 @@ public class Window extends JFrame{
         providerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                userScreen.remove(inventoryTable);
+                String[] cnAfiliado = {"ID Afiliado", "Nombre del Afiliado", "Correo del Afiliado", "Fecha de Nacimiento", "Edad del Afiliado", "Celular del Afiliado", "Invitado del Afiliado", "Nip Afiliado", "Fecha del Afiliado", "Tarjeta del Afiliado"};
+                Object[][] dataC = (Object[][]) createMatrixList(); //Modificar
+                inventoryTable = new JTable(dataC, cnAfiliado);
+                inventoryTable.setBounds(284, 229, 1027, 556);
+                userScreen.add(inventoryTable);
+                selector = 2;
                 repaint();
             }
         });
@@ -143,7 +158,14 @@ public class Window extends JFrame{
         productButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                userScreen.remove(inventoryTable);
+                String[] cnInventory = {"ID Producto", "Nombre del Producto", "Descripcion", "Presentacion", "Precio", "Contenido", "Stock", "Marca"};
+                Object[][] dataA = (Object[][]) createMatrixList();
+                inventoryTable = new JTable(dataA,cnInventory);
+                inventoryTable.setBounds(284, 229, 1027, 556);
+                userScreen.add(inventoryTable);
+                selector = 3;
+                repaint();
             }
         });
         userScreen.add(productButton);
@@ -165,16 +187,31 @@ public class Window extends JFrame{
         userInputNewBalance.setBounds(284,843,884,29);
         userScreen.add(userInputNewBalance);
 
+        ButtonGroup group = new ButtonGroup();
+        group.add(addButton); group.add(removeButton); group.add(searchButton); group.add(modifyButton);
+
         acceptButton = new JButton("Ejecutar");
         acceptButton.setBounds(1194,843,117,29);
         acceptButton.addActionListener(new ActionListener() {
-                                           @Override
-                                           public void actionPerformed(ActionEvent event) {
-                                               // TODO Auto-generated method stub
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (addButton.isSelected()){
 
-                                           }
-                                       }
-        );
+                }
+
+                if (removeButton.isSelected()){
+
+                }
+
+                if (searchButton.isSelected()){
+
+                }
+
+                if (modifyButton.isSelected()){
+
+                }
+            }
+        });
         userScreen.add(acceptButton);
 
 
@@ -183,9 +220,6 @@ public class Window extends JFrame{
         userScreen.add(exam);
 
 
-
-        ButtonGroup group = new ButtonGroup();
-        group.add(addButton); group.add(removeButton); group.add(searchButton); group.add(modifyButton);
 
         this.repaint();
     }
