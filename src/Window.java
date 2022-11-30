@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.lang.*;
 
 public class Window extends JFrame{
 
@@ -196,15 +197,20 @@ public class Window extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (addButton.isSelected()){
-                    if(userInputNewBalance.getText() == null){
+                    if(userInputNewBalance.getText() == ""){
                         System.out.println("No jalo");
                     }else{
                         System.out.println("Si jalo");
+                        String[] xcdS = userInputNewBalance.getText().split("-");
+                        for (int i = 0; i > 5; i++){
+                            System.out.println(xcdS[i]);
+                        }
+
                     }
                 }
 
                 if (removeButton.isSelected()){
-                    if(userInputNewBalance.getText() == null){
+                    if(userInputNewBalance.getText() == ""){
                         System.out.println("No jalo");
                     }else{
                         System.out.println("Si jalo");
@@ -212,7 +218,7 @@ public class Window extends JFrame{
                 }
 
                 if (searchButton.isSelected()){
-                    if(userInputNewBalance.getText() == null){
+                    if(userInputNewBalance.getText() == ""){
                         System.out.println("No jalo");
                     }else{
                         System.out.println("Si jalo");
@@ -220,7 +226,7 @@ public class Window extends JFrame{
                 }
 
                 if (modifyButton.isSelected()){
-                    if(userInputNewBalance.getText() == null){
+                    if(userInputNewBalance.getText() == ""){
                         System.out.println("No jalo");
                     }else{
                         System.out.println("Si jalo");
