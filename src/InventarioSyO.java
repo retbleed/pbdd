@@ -218,7 +218,6 @@ public class InventarioSyO {
         return  arreglo;
     }
 
-
     public int getIdProducto() {
         return idProducto;
     }

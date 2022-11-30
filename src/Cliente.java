@@ -111,6 +111,50 @@ public class Cliente {
         }
     }
 
+    public static void actualizarDatosNombresyCorreos(String nombreTabla, String nombreColumna, String datoNuevo, int id) {
+        Connection con = MYSQLConnection.connect();
+        CallableStatement cst = null;
+        try {
+            cst = con.prepareCall("{call spActualizarDatosNombresyCorreos(?, ?, ?, ?)}");
+            cst.setString(1, nombreTabla);
+            cst.setString(2, nombreColumna);
+            cst.setString(3, datoNuevo);
+            cst.setInt(4, id);
+            cst.execute();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                con.close();
+                cst.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
+    public static void actualizarFechas(String nombreTabla, String nombreColumna, String datoNuevo, int id) {
+        Connection con = MYSQLConnection.connect();
+        CallableStatement cst = null;
+        try {
+            cst = con.prepareCall("{call spActualizarFechas(?, ?, ?, ?)}");
+            cst.setString(1, nombreTabla);
+            cst.setString(2, nombreColumna);
+            cst.setString(3, datoNuevo);
+            cst.setInt(4, id);
+            cst.execute();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                con.close();
+                cst.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
     public int getIdCliente() {
         return idCliente;
     }
