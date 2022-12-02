@@ -6,22 +6,16 @@ import java.util.ArrayList;
 import java.lang.*;
 
 public class Window extends JFrame{
-
-    // NO MOVER POR NADA EN EL MUNDO ESTO, LO MUEVES, TE HAGO UN KFC
-    private JPanel userScreen;
-    private JTextField userNameInput, userPasswordInput, userInputNewBalance;
-    private JButton acceptButton, logoutButton, clientButton, providerButton, productButton, cat1Button, cat2Button, cat3Button, cat4Button;
-    private JRadioButton addButton, removeButton, searchButton, modifyButton, plus1Button, plus2Button, plus3Button, plus4Button;
-    private JLabel serverOutput, textA, textB, textC, textD, textE, textF, textG, textH, textI;
-
+    private final JPanel userScreen;
+    JTextField userNameInput, userPasswordInput, userInputNewBalance;
+    JButton acceptButton, logoutButton, clientButton, providerButton, productButton, cat1Button, cat2Button, cat3Button, cat4Button;
+    JRadioButton addButton, removeButton, searchButton, modifyButton, plus1Button, plus2Button, plus3Button;
+    JLabel serverOutput, textA, textB, textC, textD;
     private boolean optionA = false, optionB = false, optionC = false, optionD = false;
     private JTable inventoryTable;
-
     private Style exam;
     static final int height = 1024;
     static final int width = 1440;
-
-    private int selector;
 
     //CONSTRUCTOR
     public Window(){
@@ -89,8 +83,6 @@ public class Window extends JFrame{
 
     public void mainScreen(){
         userScreen.removeAll();
-
-        String userName = "Administrador";
 
         clientButton = new JButton("Cliente");
         clientButton.setBounds(19, 92, 117,29);
@@ -199,6 +191,10 @@ public class Window extends JFrame{
         textA = new JLabel(userName);
         textA.setBounds(29,29,400,30);
         textA.setForeground(new Color(253, 184, 52));
+        userScreen.add(textA);
+
+        textD =  new JLabel();
+        textD.setBounds(284,887,1027,27);
         userScreen.add(textA);
 
         // FALTAN
@@ -350,91 +346,113 @@ public class Window extends JFrame{
                 String[] xcdS = userInputNewBalance.getText().split("_");
                 if (addButton.isSelected()){
                     if(userInputNewBalance.getText().equals("")){
-
+                        textD.setForeground(new Color(253, 52, 59));
+                        textD.setText("No hay nada que procesar.");
                     }else{
                         if(xcdS.length == 9){
                             Cliente.insertarCliente(xcdS[0],xcdS[1],xcdS[2],Integer.parseInt(xcdS[3]),xcdS[4], xcdS[5], Integer.parseInt(xcdS[6]), xcdS[7], xcdS[8]);
                         }else{
-                            userInputNewBalance.setText("No funca");
+                            textD.setForeground(new Color(253, 52, 59));
+                            textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
+                        textD.setText("Agregado correctamente!");
                         ventanaCliente();
                     }
                 }
 
                 if (removeButton.isSelected()){
                     if(userInputNewBalance.getText().equals("")){
-
+                        textD.setForeground(new Color(253, 52, 59));
+                        textD.setText("No hay nada que procesar.");
                     }else{
                         if(xcdS.length == 1){
                             Cliente.eliminarCliente(Integer.parseInt(xcdS[0]));
                         }else{
-                            userInputNewBalance.setText("No funca");
+                            textD.setForeground(new Color(253, 52, 59));
+                            textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
+                        textD.setText("Agregado correctamente!");
                         ventanaCliente();
                     }
                 }
 
                 if (searchButton.isSelected()){
                     if(userInputNewBalance.getText().equals("")){
-
+                        textD.setForeground(new Color(253, 52, 59));
+                        textD.setText("No hay nada que procesar.");
                     }else{
                         if(xcdS.length == 1){
                             Cliente.busquedaXID(Integer.parseInt(xcdS[0]));
                         }else{
+                            textD.setForeground(new Color(253, 52, 59));
+                            textD.setText("Ingresa correctamente una sentencia por favor!");
                             userInputNewBalance.setText("No funca");
                         }
+                        textD.setText(String.valueOf(Cliente.busquedaXID(Integer.parseInt(xcdS[0]))));
                         ventanaCliente();
                     }
                 }
 
                 if (modifyButton.isSelected()){
                     if(userInputNewBalance.getText().equals("")){
-
+                        textD.setForeground(new Color(253, 52, 59));
+                        textD.setText("No hay nada que procesar.");
                     }else{
                         if(xcdS.length == 1){
                             Cliente.actualizarDatosNombresyCorreos(xcdS[0],xcdS[1], xcdS[2], Integer.parseInt(xcdS[3]));
                         }else{
-                            userInputNewBalance.setText("No funca");
+                            textD.setForeground(new Color(253, 52, 59));
+                            textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
+                        textD.setText("Agregado correctamente!");
                         ventanaCliente();
                     }
                 }
 
                 if (plus1Button.isSelected()){
                     if(userInputNewBalance.getText().equals("")){
-
+                        textD.setForeground(new Color(253, 52, 59));
+                        textD.setText("No hay nada que procesar.");
                     }else{
                         if(xcdS.length == 1){
                             Cliente.actualizarFechas(xcdS[0],xcdS[1], xcdS[2], Integer.parseInt(xcdS[3]));
                         }else{
-                            userInputNewBalance.setText("No funca");
+                            textD.setForeground(new Color(253, 52, 59));
+                            textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
+                        textD.setText("Agregado correctamente!");
                         ventanaCliente();
                     }
                 }
 
                 if (plus2Button.isSelected()){
                     if(userInputNewBalance.getText().equals("")){
-
+                        textD.setForeground(new Color(253, 52, 59));
+                        textD.setText("No hay nada que procesar.");
                     }else{
                         if(xcdS.length == 1){
                             Cliente.actualizarNumCelular(xcdS[0],xcdS[1], xcdS[2], Integer.parseInt(xcdS[3]));
                         }else{
-                            userInputNewBalance.setText("No funca");
+                            textD.setForeground(new Color(253, 52, 59));
+                            textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
+                        textD.setText("Agregado correctamente!");
                         ventanaCliente();
                     }
                 }
 
                 if (plus3Button.isSelected()){
                     if(userInputNewBalance.getText().equals("")){
-
+                        textD.setForeground(new Color(253, 52, 59));
+                        textD.setText("No hay nada que procesar.");
                     }else{
                         if(xcdS.length == 1){
                             Cliente.actualizarNipTarjeta(xcdS[0],xcdS[1], xcdS[2], Integer.parseInt(xcdS[3]));
                         }else{
-                            userInputNewBalance.setText("No funca");
+                            textD.setForeground(new Color(253, 52, 59));
+                            textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
+                        textD.setText("Agregado correctamente!");
                         ventanaCliente();
                     }
                 }
@@ -966,7 +984,6 @@ public class Window extends JFrame{
         inventoryTable = new JTable(dataB,cnClient);
         inventoryTable.setBounds(284, 229, 1027, 556);
         userScreen.add(inventoryTable);
-        selector = 1;
 
         String userName = "Administrador";
 
@@ -1077,7 +1094,6 @@ public class Window extends JFrame{
         inventoryTable = new JTable(dataB,cnClient);
         inventoryTable.setBounds(284, 229, 1027, 556);
         userScreen.add(inventoryTable);
-        selector = 1;
 
         String userName = "Administrador";
 
@@ -1188,7 +1204,6 @@ public class Window extends JFrame{
         inventoryTable = new JTable(dataB,cnClient);
         inventoryTable.setBounds(284, 229, 1027, 556);
         userScreen.add(inventoryTable);
-        selector = 1;
 
         String userName = "Administrador";
 
@@ -1299,7 +1314,6 @@ public class Window extends JFrame{
         inventoryTable = new JTable(dataB,cnClient);
         inventoryTable.setBounds(284, 229, 1027, 556);
         userScreen.add(inventoryTable);
-        selector = 1;
 
         String userName = "Administrador";
 
