@@ -351,11 +351,12 @@ public class Window extends JFrame{
                     }else{
                         if(xcdS.length == 9){
                             Cliente.insertarCliente(xcdS[0],xcdS[1],xcdS[2],Integer.parseInt(xcdS[3]),xcdS[4], xcdS[5], Integer.parseInt(xcdS[6]), xcdS[7], xcdS[8]);
+                            textD.setForeground(new Color(137, 234, 17));
+                            textD.setText("Agregado correctamente!");
                         }else{
                             textD.setForeground(new Color(253, 52, 59));
                             textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
-                        textD.setText("Agregado correctamente!");
                         ventanaCliente();
                     }
                 }
@@ -367,11 +368,12 @@ public class Window extends JFrame{
                     }else{
                         if(xcdS.length == 1){
                             Cliente.eliminarCliente(Integer.parseInt(xcdS[0]));
+                            textD.setForeground(new Color(137, 234, 17));
+                            textD.setText("Agregado correctamente!");
                         }else{
                             textD.setForeground(new Color(253, 52, 59));
                             textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
-                        textD.setText("Agregado correctamente!");
                         ventanaCliente();
                     }
                 }
@@ -383,12 +385,13 @@ public class Window extends JFrame{
                     }else{
                         if(xcdS.length == 1){
                             Cliente.busquedaXID(Integer.parseInt(xcdS[0]));
+                            textD.setForeground(new Color(137, 234, 17));
+                            textD.setText(String.valueOf(Cliente.busquedaXID(Integer.parseInt(xcdS[0]))));
                         }else{
                             textD.setForeground(new Color(253, 52, 59));
                             textD.setText("Ingresa correctamente una sentencia por favor!");
                             userInputNewBalance.setText("No funca");
                         }
-                        textD.setText(String.valueOf(Cliente.busquedaXID(Integer.parseInt(xcdS[0]))));
                         ventanaCliente();
                     }
                 }
@@ -398,13 +401,14 @@ public class Window extends JFrame{
                         textD.setForeground(new Color(253, 52, 59));
                         textD.setText("No hay nada que procesar.");
                     }else{
-                        if(xcdS.length == 1){
+                        if(xcdS.length == 4){
                             Cliente.actualizarDatosNombresyCorreos(xcdS[0],xcdS[1], xcdS[2], Integer.parseInt(xcdS[3]));
+                            textD.setForeground(new Color(137, 234, 17));
+                            textD.setText("Agregado correctamente!");
                         }else{
                             textD.setForeground(new Color(253, 52, 59));
                             textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
-                        textD.setText("Agregado correctamente!");
                         ventanaCliente();
                     }
                 }
@@ -414,13 +418,14 @@ public class Window extends JFrame{
                         textD.setForeground(new Color(253, 52, 59));
                         textD.setText("No hay nada que procesar.");
                     }else{
-                        if(xcdS.length == 1){
+                        if(xcdS.length == 4){
                             Cliente.actualizarFechas(xcdS[0],xcdS[1], xcdS[2], Integer.parseInt(xcdS[3]));
+                            textD.setForeground(new Color(137, 234, 17));
+                            textD.setText("Agregado correctamente!");
                         }else{
                             textD.setForeground(new Color(253, 52, 59));
                             textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
-                        textD.setText("Agregado correctamente!");
                         ventanaCliente();
                     }
                 }
@@ -430,13 +435,14 @@ public class Window extends JFrame{
                         textD.setForeground(new Color(253, 52, 59));
                         textD.setText("No hay nada que procesar.");
                     }else{
-                        if(xcdS.length == 1){
+                        if(xcdS.length == 4){
                             Cliente.actualizarNumCelular(xcdS[0],xcdS[1], xcdS[2], Integer.parseInt(xcdS[3]));
+                            textD.setForeground(new Color(137, 234, 17));
+                            textD.setText("Agregado correctamente!");
                         }else{
                             textD.setForeground(new Color(253, 52, 59));
                             textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
-                        textD.setText("Agregado correctamente!");
                         ventanaCliente();
                     }
                 }
@@ -446,13 +452,14 @@ public class Window extends JFrame{
                         textD.setForeground(new Color(253, 52, 59));
                         textD.setText("No hay nada que procesar.");
                     }else{
-                        if(xcdS.length == 1){
+                        if(xcdS.length == 4){
                             Cliente.actualizarNipTarjeta(xcdS[0],xcdS[1], xcdS[2], Integer.parseInt(xcdS[3]));
+                            textD.setForeground(new Color(137, 234, 17));
+                            textD.setText("Agregado correctamente!");
                         }else{
                             textD.setForeground(new Color(253, 52, 59));
                             textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
-                        textD.setText("Agregado correctamente!");
                         ventanaCliente();
                     }
                 }
@@ -480,6 +487,10 @@ public class Window extends JFrame{
         textA = new JLabel(userName);
         textA.setBounds(29,29,400,30);
         textA.setForeground(new Color(253, 184, 52));
+        userScreen.add(textA);
+
+        textD =  new JLabel();
+        textD.setBounds(284,887,1027,27);
         userScreen.add(textA);
 
         // FALTAN
@@ -631,12 +642,16 @@ public class Window extends JFrame{
                 String[] xcdS = userInputNewBalance.getText().split("_");
                 if (addButton.isSelected()){
                     if(userInputNewBalance.getText().equals("")){
-
+                        textD.setForeground(new Color(253, 52, 59));
+                        textD.setText("No hay nada que procesar.");
                     }else{
                         if(xcdS.length == 9){
                             Afiliado.insetarAfiliado(xcdS[0],xcdS[1],xcdS[2],Integer.parseInt(xcdS[3]),xcdS[4], xcdS[5], Integer.parseInt(xcdS[6]), xcdS[7], xcdS[8]);
+                            textD.setForeground(new Color(137, 234, 17));
+                            textD.setText("Agregado correctamente!");
                         }else{
-                            userInputNewBalance.setText("No funca");
+                            textD.setForeground(new Color(253, 52, 59));
+                            textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
                         ventanaCliente();
                     }
@@ -644,12 +659,16 @@ public class Window extends JFrame{
 
                 if (removeButton.isSelected()){
                     if(userInputNewBalance.getText().equals("")){
-
+                        textD.setForeground(new Color(253, 52, 59));
+                        textD.setText("No hay nada que procesar.");
                     }else{
                         if(xcdS.length == 1){
                             Afiliado.eliminarAfiliado(Integer.parseInt(xcdS[0]));
+                            textD.setForeground(new Color(137, 234, 17));
+                            textD.setText("Eliminado correctamente!");
                         }else{
-                            userInputNewBalance.setText("No funca");
+                            textD.setForeground(new Color(253, 52, 59));
+                            textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
                         ventanaCliente();
                     }
@@ -657,12 +676,16 @@ public class Window extends JFrame{
 
                 if (searchButton.isSelected()){
                     if(userInputNewBalance.getText().equals("")){
-
+                        textD.setForeground(new Color(253, 52, 59));
+                        textD.setText("No hay nada que procesar.");
                     }else{
                         if(xcdS.length == 1){
                             Afiliado.busquedaXID(Integer.parseInt(xcdS[0]));
+                            textD.setForeground(new Color(137, 234, 17));
+                            textD.setText(String.valueOf(Afiliado.busquedaXID(Integer.parseInt(xcdS[0]))));
                         }else{
-                            userInputNewBalance.setText("No funca");
+                            textD.setForeground(new Color(253, 52, 59));
+                            textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
                         ventanaCliente();
                     }
@@ -670,12 +693,16 @@ public class Window extends JFrame{
 
                 if (modifyButton.isSelected()){
                     if(userInputNewBalance.getText().equals("")){
-
+                        textD.setForeground(new Color(253, 52, 59));
+                        textD.setText("No hay nada que procesar.");
                     }else{
-                        if(xcdS.length == 1){
+                        if(xcdS.length == 4){
                             Afiliado.actualizarDatosNombresyCorreos(xcdS[0],xcdS[1], xcdS[2], Integer.parseInt(xcdS[3]));
+                            textD.setForeground(new Color(137, 234, 17));
+                            textD.setText("Agregado correctamente!");
                         }else{
-                            userInputNewBalance.setText("No funca");
+                            textD.setForeground(new Color(253, 52, 59));
+                            textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
                         ventanaCliente();
                     }
@@ -683,12 +710,16 @@ public class Window extends JFrame{
 
                 if (plus1Button.isSelected()){
                     if(userInputNewBalance.getText().equals("")){
-
+                        textD.setForeground(new Color(253, 52, 59));
+                        textD.setText("No hay nada que procesar.");
                     }else{
-                        if(xcdS.length == 1){
+                        if(xcdS.length == 4){
                             Afiliado.actualizarFechas(xcdS[0],xcdS[1], xcdS[2], Integer.parseInt(xcdS[3]));
-                        }else{
-                            userInputNewBalance.setText("No funca");
+                            textD.setForeground(new Color(137, 234, 17));
+                            textD.setText("Agregado correctamente!");
+                        }else {
+                            textD.setForeground(new Color(253, 52, 59));
+                            textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
                         ventanaCliente();
                     }
@@ -696,12 +727,16 @@ public class Window extends JFrame{
 
                 if (plus2Button.isSelected()){
                     if(userInputNewBalance.getText().equals("")){
-
+                        textD.setForeground(new Color(253, 52, 59));
+                        textD.setText("No hay nada que procesar.");
                     }else{
-                        if(xcdS.length == 1){
+                        if(xcdS.length == 4){
                             Afiliado.actualizarNumCelular(xcdS[0],xcdS[1], xcdS[2], Integer.parseInt(xcdS[3]));
+                            textD.setForeground(new Color(137, 234, 17));
+                            textD.setText("Agregado correctamente!");
                         }else{
-                            userInputNewBalance.setText("No funca");
+                            textD.setForeground(new Color(253, 52, 59));
+                            textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
                         ventanaCliente();
                     }
@@ -709,12 +744,16 @@ public class Window extends JFrame{
 
                 if (plus3Button.isSelected()){
                     if(userInputNewBalance.getText().equals("")){
-
+                        textD.setForeground(new Color(253, 52, 59));
+                        textD.setText("No hay nada que procesar.");
                     }else{
-                        if(xcdS.length == 1){
+                        if(xcdS.length == 4){
                             Afiliado.actualizarNipTarjeta(xcdS[0],xcdS[1], xcdS[2], Integer.parseInt(xcdS[3]));
+                            textD.setForeground(new Color(137, 234, 17));
+                            textD.setText("Agregado correctamente!");
                         }else{
-                            userInputNewBalance.setText("No funca");
+                            textD.setForeground(new Color(253, 52, 59));
+                            textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
                         ventanaCliente();
                     }
@@ -743,6 +782,10 @@ public class Window extends JFrame{
         textA = new JLabel(userName);
         textA.setBounds(29,29,400,30);
         textA.setForeground(new Color(253, 184, 52));
+        userScreen.add(textA);
+
+        textD =  new JLabel();
+        textD.setBounds(284,887,1027,27);
         userScreen.add(textA);
 
         // FALTAN
@@ -890,12 +933,16 @@ public class Window extends JFrame{
                 String[] xcdS = userInputNewBalance.getText().split("_");
                 if (addButton.isSelected()){
                     if(userInputNewBalance.getText().equals("")){
-
+                        textD.setForeground(new Color(253, 52, 59));
+                        textD.setText("No hay nada que procesar.");
                     }else{
                         if(xcdS.length == 7){
                             InventarioSyO.insertarProducto(xcdS[0],xcdS[1],xcdS[2],Integer.parseInt(xcdS[3]),xcdS[4], Integer.parseInt(xcdS[5]), xcdS[6]);
+                            textD.setForeground(new Color(137, 234, 17));
+                            textD.setText("Agregado correctamente!");
                         }else{
-                            userInputNewBalance.setText("No funca");
+                            textD.setForeground(new Color(253, 52, 59));
+                            textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
                         ventanaCliente();
                     }
@@ -903,12 +950,16 @@ public class Window extends JFrame{
 
                 if (removeButton.isSelected()){
                     if(userInputNewBalance.getText().equals("")){
-
+                        textD.setForeground(new Color(253, 52, 59));
+                        textD.setText("No hay nada que procesar.");
                     }else{
                         if(xcdS.length == 1){
                             InventarioSyO.eliminarProductos(Integer.parseInt(xcdS[0]));
+                            textD.setForeground(new Color(137, 234, 17));
+                            textD.setText("Eliminado correctamente!");
                         }else{
-                            userInputNewBalance.setText("No funca");
+                            textD.setForeground(new Color(253, 52, 59));
+                            textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
                         ventanaCliente();
                     }
@@ -916,12 +967,16 @@ public class Window extends JFrame{
 
                 if (searchButton.isSelected()){
                     if(userInputNewBalance.getText().equals("")){
-
+                        textD.setForeground(new Color(253, 52, 59));
+                        textD.setText("No hay nada que procesar.");
                     }else{
                         if(xcdS.length == 1){
                             InventarioSyO.busquedaXID(Integer.parseInt(xcdS[0]));
+                            textD.setForeground(new Color(137, 234, 17));
+                            textD.setText(String.valueOf(InventarioSyO.busquedaXID(Integer.parseInt(xcdS[0]))));
                         }else{
-                            userInputNewBalance.setText("No funca");
+                            textD.setForeground(new Color(253, 52, 59));
+                            textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
                         ventanaCliente();
                     }
@@ -929,12 +984,16 @@ public class Window extends JFrame{
 
                 if (modifyButton.isSelected()){
                     if(userInputNewBalance.getText().equals("")){
-
+                        textD.setForeground(new Color(253, 52, 59));
+                        textD.setText("No hay nada que procesar.");
                     }else{
-                        if(xcdS.length == 1){
+                        if(xcdS.length == 4){
                             InventarioSyO.actualizarInventario(xcdS[0],xcdS[1], Integer.parseInt(xcdS[2]));
+                            textD.setForeground(new Color(137, 234, 17));
+                            textD.setText("Agregado correctamente!");
                         }else{
-                            userInputNewBalance.setText("No funca");
+                            textD.setForeground(new Color(253, 52, 59));
+                            textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
                         ventanaCliente();
                     }
@@ -942,12 +1001,16 @@ public class Window extends JFrame{
 
                 if (plus1Button.isSelected()){
                     if(userInputNewBalance.getText().equals("")){
-
+                        textD.setForeground(new Color(253, 52, 59));
+                        textD.setText("No hay nada que procesar.");
                     }else{
-                        if(xcdS.length == 1){
+                        if(xcdS.length == 2){
                             InventarioSyO.actualizarStock(Integer.parseInt(xcdS[0]),Integer.parseInt(xcdS[1]));
+                            textD.setForeground(new Color(137, 234, 17));
+                            textD.setText("Agregado correctamente!");
                         }else{
-                            userInputNewBalance.setText("No funca");
+                            textD.setForeground(new Color(253, 52, 59));
+                            textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
                         ventanaCliente();
                     }
@@ -957,10 +1020,13 @@ public class Window extends JFrame{
                     if(userInputNewBalance.getText().equals("")){
 
                     }else{
-                        if(xcdS.length == 1){
+                        if(xcdS.length == 2){
                             InventarioSyO.actualizarPrecio(Integer.parseInt(xcdS[0]),Integer.parseInt(xcdS[1]));
+                            textD.setForeground(new Color(137, 234, 17));
+                            textD.setText("Agregado correctamente!");
                         }else{
-                            userInputNewBalance.setText("No funca");
+                            textD.setForeground(new Color(253, 52, 59));
+                            textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
                         ventanaCliente();
                     }
