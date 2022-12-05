@@ -466,44 +466,15 @@ public class Window extends JFrame{
         exam.setBounds(0,0, width, height);
         userScreen.add(exam);
 
-        textE = new JLabel();
+        textE = new JLabel("[Ingresar Cliente] NomCliente_Correo_FechaNacimiento_Edad_Celular_inv_NIP_FechaRegistro_TarjetaCliente\n" +
+                "[Eliminar Cliente] idCliente\n" +
+                "[Buscar Cliente] nombreTablaID\n" +
+                "[Actualizar Datos] nombreTabla_nombreColumna_datoNuevo_id\n" +
+                "[Actualizar Fechas] nombreTabla_nombreColumna_fechaNueva_id\n" +
+                "[Actualizar Num Tel] nombreTabla_nombreColumna_nuevoNumero_id\n" +
+                "[Actualizar NIP] nombreTabla_nombreColumna_nuevoNIP_id \n");
         textE.setBounds(284,877,884,29);
         userScreen.add(textE);
-
-        if (addButton.isSelected()){
-            textE.setText("NomCliente_Correo_FechaNacimiento_Edad_Celular_inv_NIP_FechaRegistro_TarjetaCliente");
-            this.repaint();
-        }
-
-        if (removeButton.isSelected()){
-            textE.setText("idCliente");
-            this.repaint();
-        }
-
-        if (searchButton.isSelected()){
-            textE.setText("idCliente");
-            this.repaint();
-        }
-
-        if (modifyButton.isSelected()){
-            textE.setText("nombreTabla_nombreColumna_datoNuevo_id");
-            this.repaint();
-        }
-
-        if (plus1Button.isSelected()){
-            textE.setText("nombreTabla_nombreColumna_fechaNueva_id");
-            this.repaint();
-        }
-
-        if (plus2Button.isSelected()){
-            textE.setText("nombreTabla_nombreColumna_nuevoNumero_id");
-            this.repaint();
-        }
-
-        if (plus3Button.isSelected()){
-            textE.setText("nombreTabla_nombreColumna_nuevoNIP_id");
-            this.repaint();
-        }
 
         this.repaint();
     }
@@ -794,44 +765,15 @@ public class Window extends JFrame{
         exam.setBounds(0,0, width, height);
         userScreen.add(exam);
 
-        textE = new JLabel();
+        textE = new JLabel("[Ingresar Afiliado] NomAfiliado_Correo_FechaNacimiento_Edad_Celular_inv_NIP_FechaRegistro_TarjetaAfiliado \n" +
+                "[Eliminar Afiliado] idAfiliado\n" +
+                "[Buscar Afiliado] nombreTablaID\n" +
+                "[Actualizar Datos] nombreTabla_nombreColumna_datoNuevo_id\n" +
+                "[Actualizar Fechas] nombreTabla_nombreColumna_fechaNueva_id\n" +
+                "[Actualizar Num Tel] nombreTabla_nombreColumna_nuevoNumero_id\n" +
+                "[Actualizar NIP] nombreTabla_nombreColumna_nuevoNIP_id \n");
         textE.setBounds(284,877,884,29);
         userScreen.add(textE);
-
-        if (addButton.isSelected()){
-            textE.setText("NomProducto_Descripcion_Presentacion_Precio_Contenido_Stock_Marca");
-            this.repaint();
-        }
-
-        if (removeButton.isSelected()){
-            textE.setText("idAfiliado");
-            this.repaint();
-        }
-
-        if (searchButton.isSelected()){
-            textE.setText("nombreTabla_id");
-            this.repaint();
-        }
-
-        if (modifyButton.isSelected()){
-            textE.setText("nombreTabla_nombreColumna_datoNuevo_id");
-            this.repaint();
-        }
-
-        if (plus1Button.isSelected()){
-            textE.setText("nombreTabla_nombreColumna_fechaNueva_id");
-            this.repaint();
-        }
-
-        if (plus2Button.isSelected()){
-            textE.setText("nombreTabla_nombreColumna_nuevoNumero_id");
-            this.repaint();
-        }
-
-        if (plus3Button.isSelected()){
-           textE.setText("nombreTabla_nombreColumna_nuevoNIP_id");
-           this.repaint();
-        }
 
         this.repaint();
     }
@@ -1101,39 +1043,15 @@ public class Window extends JFrame{
         exam.setBounds(0,0, width, height);
         userScreen.add(exam);
 
-        textE = new JLabel();
+        textE = new JLabel("[Ingresar Producto] NomProducto_Descripcion_Presentacion_Precio_Contenido_Stock_Marca\n" +
+                "[Eliminar Producto] idProducto\n" +
+                "[Buscar Producto] nombreTablaID\n" +
+                "[Actualizar Inventario] nombreColumna_datoNuevo_id\n" +
+                "[Actualizar Stock] nuevoStock_idProducto\n" +
+                "[Actualizar precio] precioNuevo_idPrecio\n" +
+                "[Actualizar NIP] nombreTabla_nombreColumna_nuevoNIP_id \n");
         textE.setBounds(284,877,884,29);
         userScreen.add(textE);
-
-        if (addButton.isSelected()){
-            textE.setText("NomProducto_Descripcion_Presentacion_Precio_Contenido_Stock_Marca");
-            this.repaint();
-        }
-
-        if (removeButton.isSelected()){
-            textE.setText("idProducto");
-            this.repaint();
-        }
-
-        if (searchButton.isSelected()){
-            textE.setText("nombreTabla_id");
-            this.repaint();
-        }
-
-        if (modifyButton.isSelected()){
-            textE.setText("nombreColumna_datoNuevo_id");
-            this.repaint();
-        }
-
-        if (plus1Button.isSelected()){
-            textE.setText("nuevoStock_id");
-            this.repaint();
-        }
-
-        if (plus2Button.isSelected()){
-            textE.setText("precioNuevo_id");
-            this.repaint();
-        }
 
 
         this.repaint();
