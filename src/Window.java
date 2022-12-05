@@ -10,7 +10,7 @@ public class Window extends JFrame{
     JTextField userNameInput, userPasswordInput, userInputNewBalance;
     JButton acceptButton, logoutButton, clientButton, providerButton, productButton, cat1Button, cat2Button, cat3Button, cat4Button;
     JRadioButton addButton, removeButton, searchButton, modifyButton, plus1Button, plus2Button, plus3Button;
-    JLabel serverOutput, textA, textB, textC, textD;
+    JLabel serverOutput, textA, textB, textC, textD, textE;
     private boolean optionA = false, optionB = false, optionC = false, optionD = false;
     private JTable inventoryTable;
     private Style exam;
@@ -352,12 +352,12 @@ public class Window extends JFrame{
                         if(xcdS.length == 9){
                             Cliente.insertarCliente(xcdS[0],xcdS[1],xcdS[2],Integer.parseInt(xcdS[3]),xcdS[4], xcdS[5], Integer.parseInt(xcdS[6]), xcdS[7], xcdS[8]);
                             textD.setForeground(new Color(137, 234, 17));
-                            textD.setText("Agregado correctamente!");
+                            ventanaCliente();
                         }else{
                             textD.setForeground(new Color(253, 52, 59));
                             textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
-                        ventanaCliente();
+
                     }
                 }
 
@@ -369,12 +369,11 @@ public class Window extends JFrame{
                         if(xcdS.length == 1){
                             Cliente.eliminarCliente(Integer.parseInt(xcdS[0]));
                             textD.setForeground(new Color(137, 234, 17));
-                            textD.setText("Agregado correctamente!");
+                            ventanaCliente();
                         }else{
                             textD.setForeground(new Color(253, 52, 59));
                             textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
-                        ventanaCliente();
                     }
                 }
 
@@ -387,12 +386,12 @@ public class Window extends JFrame{
                             Cliente.busquedaXID(Integer.parseInt(xcdS[0]));
                             textD.setForeground(new Color(137, 234, 17));
                             textD.setText(String.valueOf(Cliente.busquedaXID(Integer.parseInt(xcdS[0]))));
+                            ventanaCliente();
                         }else{
                             textD.setForeground(new Color(253, 52, 59));
                             textD.setText("Ingresa correctamente una sentencia por favor!");
                             userInputNewBalance.setText("No funca");
                         }
-                        ventanaCliente();
                     }
                 }
 
@@ -404,12 +403,11 @@ public class Window extends JFrame{
                         if(xcdS.length == 4){
                             Cliente.actualizarDatosNombresyCorreos(xcdS[0],xcdS[1], xcdS[2], Integer.parseInt(xcdS[3]));
                             textD.setForeground(new Color(137, 234, 17));
-                            textD.setText("Agregado correctamente!");
+                            ventanaCliente();
                         }else{
                             textD.setForeground(new Color(253, 52, 59));
                             textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
-                        ventanaCliente();
                     }
                 }
 
@@ -421,12 +419,11 @@ public class Window extends JFrame{
                         if(xcdS.length == 4){
                             Cliente.actualizarFechas(xcdS[0],xcdS[1], xcdS[2], Integer.parseInt(xcdS[3]));
                             textD.setForeground(new Color(137, 234, 17));
-                            textD.setText("Agregado correctamente!");
+                            ventanaCliente();
                         }else{
                             textD.setForeground(new Color(253, 52, 59));
                             textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
-                        ventanaCliente();
                     }
                 }
 
@@ -438,12 +435,11 @@ public class Window extends JFrame{
                         if(xcdS.length == 4){
                             Cliente.actualizarNumCelular(xcdS[0],xcdS[1], xcdS[2], Integer.parseInt(xcdS[3]));
                             textD.setForeground(new Color(137, 234, 17));
-                            textD.setText("Agregado correctamente!");
+                            ventanaCliente();
                         }else{
                             textD.setForeground(new Color(253, 52, 59));
                             textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
-                        ventanaCliente();
                     }
                 }
 
@@ -455,12 +451,11 @@ public class Window extends JFrame{
                         if(xcdS.length == 4){
                             Cliente.actualizarNipTarjeta(xcdS[0],xcdS[1], xcdS[2], Integer.parseInt(xcdS[3]));
                             textD.setForeground(new Color(137, 234, 17));
-                            textD.setText("Agregado correctamente!");
+                            ventanaCliente();
                         }else{
                             textD.setForeground(new Color(253, 52, 59));
                             textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
-                        ventanaCliente();
                     }
                 }
             }
@@ -470,6 +465,45 @@ public class Window extends JFrame{
         exam = new Style(2); //CAMBIAR COLORES SEGUN SEYTU o OMNILIFE
         exam.setBounds(0,0, width, height);
         userScreen.add(exam);
+
+        textE = new JLabel();
+        textE.setBounds(284,877,884,29);
+        userScreen.add(textE);
+
+        if (addButton.isSelected()){
+            textE.setText("NomCliente_Correo_FechaNacimiento_Edad_Celular_inv_NIP_FechaRegistro_TarjetaCliente");
+            this.repaint();
+        }
+
+        if (removeButton.isSelected()){
+            textE.setText("idCliente");
+            this.repaint();
+        }
+
+        if (searchButton.isSelected()){
+            textE.setText("idCliente");
+            this.repaint();
+        }
+
+        if (modifyButton.isSelected()){
+            textE.setText("nombreTabla_nombreColumna_datoNuevo_id");
+            this.repaint();
+        }
+
+        if (plus1Button.isSelected()){
+            textE.setText("nombreTabla_nombreColumna_fechaNueva_id");
+            this.repaint();
+        }
+
+        if (plus2Button.isSelected()){
+            textE.setText("nombreTabla_nombreColumna_nuevoNumero_id");
+            this.repaint();
+        }
+
+        if (plus3Button.isSelected()){
+            textE.setText("nombreTabla_nombreColumna_nuevoNIP_id");
+            this.repaint();
+        }
 
         this.repaint();
     }
@@ -648,12 +682,11 @@ public class Window extends JFrame{
                         if(xcdS.length == 9){
                             Afiliado.insetarAfiliado(xcdS[0],xcdS[1],xcdS[2],Integer.parseInt(xcdS[3]),xcdS[4], xcdS[5], Integer.parseInt(xcdS[6]), xcdS[7], xcdS[8]);
                             textD.setForeground(new Color(137, 234, 17));
-                            textD.setText("Agregado correctamente!");
+                            ventanaCliente();
                         }else{
                             textD.setForeground(new Color(253, 52, 59));
                             textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
-                        ventanaCliente();
                     }
                 }
 
@@ -665,12 +698,11 @@ public class Window extends JFrame{
                         if(xcdS.length == 1){
                             Afiliado.eliminarAfiliado(Integer.parseInt(xcdS[0]));
                             textD.setForeground(new Color(137, 234, 17));
-                            textD.setText("Eliminado correctamente!");
+                            ventanaCliente();
                         }else{
                             textD.setForeground(new Color(253, 52, 59));
                             textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
-                        ventanaCliente();
                     }
                 }
 
@@ -683,11 +715,11 @@ public class Window extends JFrame{
                             Afiliado.busquedaXID(Integer.parseInt(xcdS[0]));
                             textD.setForeground(new Color(137, 234, 17));
                             textD.setText(String.valueOf(Afiliado.busquedaXID(Integer.parseInt(xcdS[0]))));
+                            ventanaCliente();
                         }else{
                             textD.setForeground(new Color(253, 52, 59));
                             textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
-                        ventanaCliente();
                     }
                 }
 
@@ -699,12 +731,11 @@ public class Window extends JFrame{
                         if(xcdS.length == 4){
                             Afiliado.actualizarDatosNombresyCorreos(xcdS[0],xcdS[1], xcdS[2], Integer.parseInt(xcdS[3]));
                             textD.setForeground(new Color(137, 234, 17));
-                            textD.setText("Agregado correctamente!");
+                            ventanaCliente();
                         }else{
                             textD.setForeground(new Color(253, 52, 59));
                             textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
-                        ventanaCliente();
                     }
                 }
 
@@ -716,12 +747,11 @@ public class Window extends JFrame{
                         if(xcdS.length == 4){
                             Afiliado.actualizarFechas(xcdS[0],xcdS[1], xcdS[2], Integer.parseInt(xcdS[3]));
                             textD.setForeground(new Color(137, 234, 17));
-                            textD.setText("Agregado correctamente!");
+                            ventanaCliente();
                         }else {
                             textD.setForeground(new Color(253, 52, 59));
                             textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
-                        ventanaCliente();
                     }
                 }
 
@@ -733,12 +763,11 @@ public class Window extends JFrame{
                         if(xcdS.length == 4){
                             Afiliado.actualizarNumCelular(xcdS[0],xcdS[1], xcdS[2], Integer.parseInt(xcdS[3]));
                             textD.setForeground(new Color(137, 234, 17));
-                            textD.setText("Agregado correctamente!");
+                            ventanaCliente();
                         }else{
                             textD.setForeground(new Color(253, 52, 59));
                             textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
-                        ventanaCliente();
                     }
                 }
 
@@ -750,12 +779,11 @@ public class Window extends JFrame{
                         if(xcdS.length == 4){
                             Afiliado.actualizarNipTarjeta(xcdS[0],xcdS[1], xcdS[2], Integer.parseInt(xcdS[3]));
                             textD.setForeground(new Color(137, 234, 17));
-                            textD.setText("Agregado correctamente!");
+                            ventanaCliente();
                         }else{
                             textD.setForeground(new Color(253, 52, 59));
                             textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
-                        ventanaCliente();
                     }
                 }
             }
@@ -765,6 +793,45 @@ public class Window extends JFrame{
         exam = new Style(2); //CAMBIAR COLORES SEGUN SEYTU o OMNILIFE
         exam.setBounds(0,0, width, height);
         userScreen.add(exam);
+
+        textE = new JLabel();
+        textE.setBounds(284,877,884,29);
+        userScreen.add(textE);
+
+        if (addButton.isSelected()){
+            textE.setText("NomProducto_Descripcion_Presentacion_Precio_Contenido_Stock_Marca");
+            this.repaint();
+        }
+
+        if (removeButton.isSelected()){
+            textE.setText("idAfiliado");
+            this.repaint();
+        }
+
+        if (searchButton.isSelected()){
+            textE.setText("nombreTabla_id");
+            this.repaint();
+        }
+
+        if (modifyButton.isSelected()){
+            textE.setText("nombreTabla_nombreColumna_datoNuevo_id");
+            this.repaint();
+        }
+
+        if (plus1Button.isSelected()){
+            textE.setText("nombreTabla_nombreColumna_fechaNueva_id");
+            this.repaint();
+        }
+
+        if (plus2Button.isSelected()){
+            textE.setText("nombreTabla_nombreColumna_nuevoNumero_id");
+            this.repaint();
+        }
+
+        if (plus3Button.isSelected()){
+           textE.setText("nombreTabla_nombreColumna_nuevoNIP_id");
+           this.repaint();
+        }
 
         this.repaint();
     }
@@ -939,12 +1006,11 @@ public class Window extends JFrame{
                         if(xcdS.length == 7){
                             InventarioSyO.insertarProducto(xcdS[0],xcdS[1],xcdS[2],Integer.parseInt(xcdS[3]),xcdS[4], Integer.parseInt(xcdS[5]), xcdS[6]);
                             textD.setForeground(new Color(137, 234, 17));
-                            textD.setText("Agregado correctamente!");
+                            ventanaCliente();
                         }else{
                             textD.setForeground(new Color(253, 52, 59));
                             textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
-                        ventanaCliente();
                     }
                 }
 
@@ -956,12 +1022,11 @@ public class Window extends JFrame{
                         if(xcdS.length == 1){
                             InventarioSyO.eliminarProductos(Integer.parseInt(xcdS[0]));
                             textD.setForeground(new Color(137, 234, 17));
-                            textD.setText("Eliminado correctamente!");
+                            ventanaCliente();
                         }else{
                             textD.setForeground(new Color(253, 52, 59));
                             textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
-                        ventanaCliente();
                     }
                 }
 
@@ -974,11 +1039,11 @@ public class Window extends JFrame{
                             InventarioSyO.busquedaXID(Integer.parseInt(xcdS[0]));
                             textD.setForeground(new Color(137, 234, 17));
                             textD.setText(String.valueOf(InventarioSyO.busquedaXID(Integer.parseInt(xcdS[0]))));
+                            ventanaCliente();
                         }else{
                             textD.setForeground(new Color(253, 52, 59));
                             textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
-                        ventanaCliente();
                     }
                 }
 
@@ -990,12 +1055,11 @@ public class Window extends JFrame{
                         if(xcdS.length == 4){
                             InventarioSyO.actualizarInventario(xcdS[0],xcdS[1], Integer.parseInt(xcdS[2]));
                             textD.setForeground(new Color(137, 234, 17));
-                            textD.setText("Agregado correctamente!");
+                            ventanaCliente();
                         }else{
                             textD.setForeground(new Color(253, 52, 59));
                             textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
-                        ventanaCliente();
                     }
                 }
 
@@ -1007,12 +1071,11 @@ public class Window extends JFrame{
                         if(xcdS.length == 2){
                             InventarioSyO.actualizarStock(Integer.parseInt(xcdS[0]),Integer.parseInt(xcdS[1]));
                             textD.setForeground(new Color(137, 234, 17));
-                            textD.setText("Agregado correctamente!");
+                            ventanaCliente();
                         }else{
                             textD.setForeground(new Color(253, 52, 59));
                             textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
-                        ventanaCliente();
                     }
                 }
 
@@ -1023,12 +1086,11 @@ public class Window extends JFrame{
                         if(xcdS.length == 2){
                             InventarioSyO.actualizarPrecio(Integer.parseInt(xcdS[0]),Integer.parseInt(xcdS[1]));
                             textD.setForeground(new Color(137, 234, 17));
-                            textD.setText("Agregado correctamente!");
+                            ventanaCliente();
                         }else{
                             textD.setForeground(new Color(253, 52, 59));
                             textD.setText("Ingresa correctamente una sentencia por favor!");
                         }
-                        ventanaCliente();
                     }
                 }
             }
@@ -1038,6 +1100,41 @@ public class Window extends JFrame{
         exam = new Style(2); //CAMBIAR COLORES SEGUN SEYTU o OMNILIFE
         exam.setBounds(0,0, width, height);
         userScreen.add(exam);
+
+        textE = new JLabel();
+        textE.setBounds(284,877,884,29);
+        userScreen.add(textE);
+
+        if (addButton.isSelected()){
+            textE.setText("NomProducto_Descripcion_Presentacion_Precio_Contenido_Stock_Marca");
+            this.repaint();
+        }
+
+        if (removeButton.isSelected()){
+            textE.setText("idProducto");
+            this.repaint();
+        }
+
+        if (searchButton.isSelected()){
+            textE.setText("nombreTabla_id");
+            this.repaint();
+        }
+
+        if (modifyButton.isSelected()){
+            textE.setText("nombreColumna_datoNuevo_id");
+            this.repaint();
+        }
+
+        if (plus1Button.isSelected()){
+            textE.setText("nuevoStock_id");
+            this.repaint();
+        }
+
+        if (plus2Button.isSelected()){
+            textE.setText("precioNuevo_id");
+            this.repaint();
+        }
+
 
         this.repaint();
     }
